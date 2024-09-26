@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 
-// Interface é um modelo que contém métodos que outras classes devem implementar.
-// A Interface UserRepository está herdando de uma interface do Spring Data chamada JpaRepository.
+
+// A interface UserRepository define um "modelo" para operações de acesso ao banco de dados.
+// Ela estende JpaRepository, uma interface do Spring Data JPA, que fornece métodos prontos para operações comuns,
+// como salvar, buscar, atualizar e deletar registros. Assim, não é necessário implementar manualmente esses métodos.
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Seguindo a especificação JPA, ele sabe implementaar as classes abaixo.
+    // Seguindo a especificação JPA, ele sabe implementar as classes abaixo.
     Optional<User> findUserByDocument(String document);
     Optional<User> findUserById(Long id);
 }
